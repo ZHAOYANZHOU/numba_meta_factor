@@ -171,11 +171,8 @@ def nb_nanstd(arr, ddof=1):
 def nb_rolling_sum(arr, timeperiod):
     '''
     计算rolling的sum, min_periods=timeperiod
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -186,11 +183,8 @@ def nb_rolling_sum(arr, timeperiod):
 def nb_rolling_nansum(arr, timeperiod):
     '''
     计算rolling的nansum, min_periods=timeperiod
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -201,11 +195,8 @@ def nb_rolling_nansum(arr, timeperiod):
 def nb_rolling_mean(arr, timeperiod):
     '''
     计算rolling的mean, min_periods=timeperiod
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -216,11 +207,8 @@ def nb_rolling_mean(arr, timeperiod):
 def nb_rolling_nanmean(arr, timeperiod):
     '''
     计算rolling的nanmean, min_periods=timeperiod
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -232,11 +220,8 @@ def nb_rolling_std(arr, timeperiod, ddof=1):
     '''
     计算rolling的std, min_periods=timeperiod, 
     因为rolling窗口一般不大, 所以视作样本, 默认ddof=1
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -248,11 +233,8 @@ def nb_rolling_nanstd(arr, timeperiod, ddof=1):
     '''
     计算rolling的nanstd, min_periods=timeperiod, 
     因为rolling窗口一般不大, 所以视作样本, 默认ddof=1
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -263,11 +245,8 @@ def nb_rolling_nanstd(arr, timeperiod, ddof=1):
 def nb_rolling_max(arr, timeperiod):
     '''
     计算rolling的max, min_periods=timeperiod, 
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
-    arr = arr.copy()
-    arr = nb_fillinf(arr, np.nan)
     result = np.full(n, np.nan)
     for i in range(timeperiod - 1, n):
         window = arr[i - timeperiod + 1: i + 1]
@@ -278,7 +257,6 @@ def nb_rolling_max(arr, timeperiod):
 def nb_rolling_argmax(arr, timeperiod):
     '''
     计算rolling的argmax, min_periods=timeperiod, 
-    按照pandas的rolling, inf视作nan来处理
     需要专门做nan处理
     '''
     n = len(arr)
@@ -295,7 +273,6 @@ def nb_rolling_argmax(arr, timeperiod):
 def nb_rolling_min(arr, timeperiod):
     '''
     计算rolling的min, min_periods=timeperiod, 
-    按照pandas的rolling, inf视作nan来处理
     '''
     n = len(arr)
     result = np.full(n, np.nan)
@@ -308,7 +285,6 @@ def nb_rolling_min(arr, timeperiod):
 def nb_rolling_argmin(arr, timeperiod):
     '''
     计算rolling的argmin, min_periods=timeperiod, 
-    按照pandas的rolling, inf视作nan来处理
     需要专门做nan处理
     '''
     n = len(arr)
